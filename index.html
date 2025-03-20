@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <title>pomodoro♡timer</title>
+
+        <meta property="og:url" content />
+        <meta property="og:site_name" content="pomodoro♡timer" />
+        <meta property="og:title" content="pomodoro♡timer" />
+        <meta property="og:image" content />
+        <meta property="og:description"
+            content="a simple room to help you focus!" />
+
+        <!-- <link rel="shortcut icon" href="./assets/img/favicon.ico"
+            type="image/x-icon">
+        <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon"> -->
+
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="css/musicplayer.css" type="text/css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+
+        <!-- <audio id="notification" src="aud/notif.mp3" preload="auto"></audio> -->
+    </head>
+
+    <body>
+        <div id="content">
+            <div id="site_bgm_box">
+                <iframe src="bgm.html" name="bgm_frame" id="bgm_frame"
+                    frameborder="0" marginheight="0" marginwidth="0"
+                    topmargin="0" scrolling="no" allowTransparency="true"
+                    allow="autoplay; encrypted-media"></iframe>
+            </div>
+
+            <div class="music-player" id="music-player">
+                <div class="music-thumb" id="music-thumb"></div>
+
+                <div class="music-ui">
+                    <span id="play-text">now playing...</span>
+                    <p><span id="songtitle"></span></p>
+
+                    <div class="player_detail">
+                        <div style="text-align: center;">
+                            <div id="player-info1"></div>
+                            <input id="player-progress" type="range" value="0"
+                                min="0" max="100"
+                                onchange="playerCurrentTimeChange(this.value);"
+                                oninput="playerCurrentTimeSlide();">
+                            <label for="player-progress"></label>
+                            <div id="player-info2"></div>
+                        </div>
+
+                        <div class="music-ctl">
+                            <a onclick="view_list()"><i class="material-icons"
+                                    style="float:left;">list</i></a>
+                            <a onclick="bgm_func(1)"><i
+                                    class="material-icons">skip_previous</i></a>
+                            <a onclick="bgm_func(2)" id="playicon"
+                                style="display:none;"><i
+                                    class="material-icons">play_arrow</i></a>
+                            <a onclick="bgm_func(3)" id="pauseicon"
+                                style="display:inline-block;"><i
+                                    class="material-icons">pause</i></a>
+                            <a onclick="bgm_func(4)"><i
+                                    class="material-icons">skip_next</i></a>
+                            <a onclick="bgm_func(5)"><i class="material-icons"
+                                    style="position: absolute; right: 37px; opacity:0.5;"
+                                    id="shonicon">shuffle</i></a>
+                            <a onclick="bgm_vol()"><i class="material-icons"
+                                    style="float:right;">volume_up</i></a>
+                            <div id="volume-window" style="display:none;">
+                                <input id="YouTube-player-volume" type="range"
+                                    value="50" min="0" max="100"
+                                    onchange="youTubePlayerVolumeChange(this.value);">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music-list" id="mslist"></div>
+            </div>
+
+            <div class="container">
+                <div class="wrapper">
+                    <div class="tabs">
+                        <div id="spinner" class="spinner"></div>
+
+                        <div class="tab">
+                            <input type="radio" name="css-tabs" id="tab-1"
+                                checked class="tab-switch">
+
+                            <div class="title">
+                                <label for="tab-1" id="focus"
+                                    class="tab-label"><b>Focus</b></label>
+                                <label for="tab-2" id="break"
+                                    class="tab-label"><b>Break</b></label>
+                            </div>
+
+                            <div class="tab-content">
+                                <img id="icon"
+                                    src="img/notebook.png"
+                                    alt="character icon">
+                            </div>
+
+                            <div class="timer-box">
+                                <div id="timer"> 25:00 </div>
+                                <div id="buttons">
+                                    <button id="start"> Start </button>
+                                    <button id="reset"> Reset </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+        <script src="js/plyr-custom.js"></script>
+        <script src="js/musicplayer.js"></script>
+        <script src="js/pomodoro.js"></script>
+
+        <script
+            src="https://www.youtube.com/s/player/3ede36f2/www-widgetapi.vflset/www-widgetapi.js"
+            async
+            type="text/javascript" id="www-widgetapi-script"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
+    </body>
+</html>
